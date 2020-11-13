@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Input from '../Input';
+import { Checkbox } from '../Checkbox';
 import InputTypes from '../Input/InputTypes';
+import RadioGroup from '../RadioGroup';
 
 function execValidate(validate, props) {
   if (typeof validate === 'function') {
@@ -14,9 +16,11 @@ function execValidate(validate, props) {
   return msg ? error || msg : '';
 }
 
-const typeNames = Object.values(InputTypes).map(
-  InputType => InputType.displayName,
-);
+const typeNames = [
+  ...Object.values(InputTypes).map(InputType => InputType.displayName),
+  Checkbox.displayName,
+  RadioGroup.displayName,
+];
 
 class Form extends React.Component {
   static _isValidElement = element =>

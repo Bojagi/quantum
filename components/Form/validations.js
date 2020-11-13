@@ -17,6 +17,10 @@ class Validations {
     return value ? '' : msg.REQUIRED;
   }
 
+  static RequiredChecked({ checked }) {
+    return checked ? '' : msg.REQUIRED;
+  }
+
   static CPF({ value }, cpf = removeNonDigit(value)) {
     const CPF_SIZE = 11;
 

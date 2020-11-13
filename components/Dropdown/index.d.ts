@@ -1,7 +1,13 @@
 import React from 'react';
 import { ControllerStateAndHelpers } from 'downshift';
+import { Validations } from '../Form';
 
 export type ItemPropType = string | { value: string | number; label: string };
+
+export type Validate = typeof Validations.Required;
+export type CustomValidate =
+  | ((param?: { value: string }) => string)
+  | { validate: Validate; error: string };
 
 export interface DropdownProps {
   autocomplete?: boolean;
@@ -25,6 +31,7 @@ export interface DropdownProps {
     spacing?: object;
     baseFontSize?: number;
   };
+  validate?: Validate | CustomValidate | Array<Validate | CustomValidate>;
 }
 
 export default class Dropdown extends React.Component<DropdownProps> {}

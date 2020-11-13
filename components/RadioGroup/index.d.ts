@@ -1,4 +1,11 @@
 import React from 'react';
+import { Validations } from '../Form';
+
+export type Validate = typeof Validations.Required;
+export type CustomValidate =
+  | ((param?: { value: string }) => string)
+  | { validate: Validate; error: string };
+
 
 export interface RadioProps {
   disabled?: boolean;
@@ -59,6 +66,7 @@ export interface RadioGroupProps {
     spacing?: object;
   };
   name: string;
+  validate?: Validate | CustomValidate | Array<Validate | CustomValidate>;
 }
 
 export default class RadioGroup extends React.Component<RadioGroupProps> {
