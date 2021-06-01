@@ -35,8 +35,7 @@ RadioGroupExample.propTypes = {
 
 const importRadioGroup = `import { RadioGroup } from '@catho/quantum';`;
 
-const stories = storiesOf('Forms', module);
-
+// eslint-disable-next-line import/prefer-default-export
 export const _RadioGroup = () => (
   <>
     <Heading title="RadioGroup">
@@ -157,6 +156,4 @@ export const _RadioGroup = () => (
   </>
 );
 
-_RadioGroup.story = {
-  name: 'Radio group',
-};
+_RadioGroup.storyName = 'Radio group';
