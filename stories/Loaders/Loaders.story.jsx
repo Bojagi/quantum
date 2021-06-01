@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { AutoExample, Tab, SimpleHighlight } from '@catho/quantum-storybook-ui';
 import {
   ProgressBarExample,
@@ -40,25 +39,38 @@ const renderExampleTab = componentExamples => (
   </Tab>
 );
 
-storiesOf('Loaders', module)
-  .add('ProgressBar', () => (
-    <AutoExample
-      description={descriptions.progressBar}
-      component={ProgressBar}
-      additionalTabs={renderExampleTab(ProgressBarExample)}
-    />
-  ))
-  .add('CircularLoader', () => (
-    <AutoExample
-      description={descriptions.circularLoader}
-      component={CircularLoader}
-      additionalTabs={renderExampleTab(CircularLoaderExample)}
-    />
-  ))
-  .add('Skeleton', () => (
-    <AutoExample
-      description={descriptions.skeleton}
-      component={Skeleton}
-      additionalTabs={renderExampleTab(SkeletonExample)}
-    />
-  ));
+export default {
+  title: 'Loaders',
+};
+
+export const _ProgressBar = () => (
+  <AutoExample
+    description={descriptions.progressBar}
+    component={ProgressBar}
+    additionalTabs={renderExampleTab(ProgressBarExample)}
+  />
+);
+
+_ProgressBar.story = {
+  name: 'ProgressBar',
+};
+
+export const _CircularLoader = () => (
+  <AutoExample
+    description={descriptions.circularLoader}
+    component={CircularLoader}
+    additionalTabs={renderExampleTab(CircularLoaderExample)}
+  />
+);
+
+_CircularLoader.story = {
+  name: 'CircularLoader',
+};
+
+export const _Skeleton = () => (
+  <AutoExample
+    description={descriptions.skeleton}
+    component={Skeleton}
+    additionalTabs={renderExampleTab(SkeletonExample)}
+  />
+);

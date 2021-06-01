@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { storiesOf } from '@storybook/react';
 import {
   Heading,
   AutoPropsApi,
@@ -37,7 +36,8 @@ RadioGroupExample.propTypes = {
 const importRadioGroup = `import { RadioGroup } from '@catho/quantum';`;
 
 const stories = storiesOf('Forms', module);
-stories.add('Radio group', () => (
+
+export const _RadioGroup = () => (
   <>
     <Heading title="RadioGroup">
       Radio group is a list of radio buttons that are used when a list of two or
@@ -155,4 +155,8 @@ stories.add('Radio group', () => (
       </Tab>
     </TabbedView>
   </>
-));
+);
+
+_RadioGroup.story = {
+  name: 'Radio group',
+};
